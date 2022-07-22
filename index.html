@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>infant mortality prediction</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form action="{{ url_for('predict') }}" method="POST">
+			<table cellpadding="2" width="60%" bgcolor="#ECF0F1" align="center"
+			cellspacing="2" height="30%" border=0px>
+			<tr>
+			<td colspan=2>
+			<center><span class="contact100-form-title" style="font-size:16px"><h4>Predicting Infant Mortality Based on Maternal Determinants and Nutrition Status of 0-59 Month Older Children using a Deep Learning Approach in Ethiopia</h4></span></center>
+				<span class="contact100-form-title" id="output" style="color: #ff0000;" >&nbsp;</span>
+				<tr><td>
+				<div class="wrap-input100 " >
+			<span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Respondants Age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v013" name="v013" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">Select Age..............</option>
+    <option value="1">15-19</option>
+	  <option value="2">20-24</option>
+	  <option value="3">25-29</option>
+	  <option value="4">30-34</option>
+	  <option value="5">35-39</option>
+	  <option value="6">40-44</option>
+	  <option value="7">44-49</option>
+  </select>
+  <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Religion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v130" name="v130" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select religion..............</option>
+		<option value="0">Orthodox </option>
+	  <option value="1">Isalem</option>
+	  <option value="2">protastent</option>
+	 
+  </select>
+  </div></tr></th>
+  <tr><td>
+				<div class="wrap-input100" >
+  <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pregnant &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v213 " name="v213 " style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select pregnancy....</option>
+      <option value="0">no </option>
+	  <option value="1">yes</option>
+	  
+  </select>
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Residance &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v025" name="v025" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select residance.........</option>
+      <option value="2">rular</option>
+	  <option value="1">urban</option>
+	 
+  </select>
+   </div></tr></th>
+     <tr><td>
+				<div class="wrap-input100" >
+  <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;Gave plain water &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v409" name="v409" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select plain..............</option>
+      <option value="0">no</option>
+	  <option value="1">yes</option>
+	  
+  </select>
+ <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anemia Level &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v457" name="v457" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select anemia level.....</option>
+      <option value="1">anemic</option>
+	  <option value="0">non anemic</option>
+
+  </select>
+     </div></tr></th>
+	  <tr><td>
+				<div class="wrap-input100" >
+  <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gave fresh milk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v411" name="v411" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select milk...............</option>
+      <option value="1">yes</option>
+	  <option value="0">no</option>
+
+  </select>
+ <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Education Level &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v106" name="v106" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select education..........</option>
+      <option value="0">no education</option>
+	  <option value="1">primary</option>
+	  <option value="2">secondary</option>
+	  <option value="3">higher</option>
+	  
+  </select>
+  </div></tr></th>
+  <tr><td>
+				<div class="wrap-input100" >
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gave fortified food &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v412a" name="v412a" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select fortified.........</option>
+      <option value="1">yes </option>
+	  <option value="0">No</option>
+	  
+  </select>
+    <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gave clear broth &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v412c" name="v412c" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select broth.................</option>
+      <option value="1">yes </option>
+	  <option value="0">No</option>
+	  
+  </select>
+  </div></tr></th>
+  <tr><td>
+				<div class="wrap-input100" >
+    <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gave  bread,noodles &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v414e" name="v414e" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select bread............</option>
+      <option value="0 ">no </option>
+	  <option value="1">yes</option>
+	
+  </select>
+    <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wealth Index&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v190" name="v190" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select wealth................</option>
+      <option value="0">poorest </option>
+	   <option value="1">poor</option>
+	  <option value="2">rich</option>
+	   <option value="3">richest</option>
+	    
+  </select>
+  </div></tr></th>
+   <tr><td>
+				<div class="wrap-input100" >
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Respondents Region &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v024" name="v024" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select region............</option>
+						    <option value="1">Tigray</option>
+                <option value="2">Afar</option>
+							<option value="3">Amhara</option>
+							<option value="4">Oromia</option>
+							<option value="5">Somali</option>
+							<option value="6">Benshangul</option>
+							<option value="7">Snnpr</option>
+							<option value="8">Gambela</option>
+							<option value="9">Harar</option>
+							<option value="10">Addis ababa</option>
+							<option value="11">Diredaw</option>
+  </select>
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gave fish &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v414n" name="v414n" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select fish.....................</option>
+                      
+							<option value="0">no</option>
+							<option value="1">yes</option>
+							
+  </select>
+   </div></tr></th>
+   <tr><td>
+				<div class="wrap-input100" >
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gave semi-solid food &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v414s" name="v414s" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select semi-solid......</option>
+							 <option value="0">no</option>
+                <option value="1">yes</option>			
+							
+  </select>
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gave  yogurt &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v414v" name="v414v" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select yogurt................</option>
+              <option value="1">yes</option>
+							<option value="0">no</option>
+							
+  </select>
+   </div></tr></th>
+    <tr><td>
+				<div class="wrap-input100" >
+   <span class="label-input100">&nbsp;&nbsp;body mass index &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="v445" name="v445" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select mass index.....</option>
+               <option value="1">under_Weight   </option>
+							<option value="0"> normal_Weight </option>
+							<option value="2"> over_Weight </option>
+							
+  </select>
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;live with mother &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="b9" name="b9" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select live with mother..</option>
+              <option value="1">yes</option>
+							<option value="0">no</option>
+							
+  </select>
+				
+					<span class="focus-input100"></span>
+				</div></td></tr>
+				<tr><td>
+
+<tr><td>
+				<div class="wrap-input100" >
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age of child  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="b19" name="b19" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select age of child ...</option>
+							 <option value="0">0-12</option>
+                <option value="1">13-24</option>
+							  <option value="2">25-36</option>
+                <option value="3">37-48</option>
+                <option value="4">49-59</option>
+                <option value="5">60</option>
+							
+							
+							
+  </select>
+   <span class="label-input100">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;breast feeding&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<select  class="input100" id="m4" name="m4" style="padding: 2px 4px;margin-top: 6px;border: 2px solid #000000;" required>
+							<option disabled selected value="">select breast feeding....</option>
+              <option value="1">yes</option>
+							<option value="0">no</option>
+							
+  </select>
+   </div></tr></th>
+   <tr><td>
+				
+
+				<div class="container-contact100-form-btn">
+					<div class="wrap-contact100-form-btn">
+						<div class="contact100-form-bgbtn"></div>
+						<center><button class="contact100-form-btn" id='submit' type="submit" value="Submit" ><b>Predict</b></button></center>
+					</div>
+				</div>
+			</td></tr>	
+			<tr><td>
+			<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form action="{{ url_for('predict') }}" method="POST">	
+				<div class="row" style="margin:0% 0% 0% 10%">
+          <center>  <h4 >{{pred}}</h4><center>
+  </div>
+  </td></tr></table>
+			</form>
+		</div>
+	</div>					  
+</body>
+</html>
+
+
+
+
